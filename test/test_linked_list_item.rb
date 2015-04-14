@@ -8,11 +8,11 @@ class LinkedListItemTest < MiniTest::Unit::TestCase
     assert lli === lli
   end
 
-  #def test_00b_triple_equals
-    #lli1 = LinkedListItem.new("foo")
-    #lli2 = LinkedListItem.new("foo")
-    #assert !(lli1 === lli2)
-  #end
+  def test_00b_triple_equals
+    lli1 = LinkedListItem.new("foo")
+    lli2 = LinkedListItem.new("foo")
+    assert !(lli1 === lli2)
+  end
 
   def test_01_item_stores_payload
     lli = LinkedListItem.new("foo")
