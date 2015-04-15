@@ -1,4 +1,10 @@
+require_relative 'linked_list_item'
+
 class LinkedList
+
+  #def size
+    #@size = 0
+  #end
 
   def push(item)
     if @first_item.nil?
@@ -11,10 +17,9 @@ class LinkedList
   end
 
   def get(index)
+    raise IndexError if index < 0 || @first_item == nil
     if index == 0
       @first_item.payload
-    elsif index < 0
-      raise IndexError
     else
       count = 0
       current_node = @first_item
