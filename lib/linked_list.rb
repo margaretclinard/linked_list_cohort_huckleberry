@@ -2,7 +2,8 @@ require_relative 'linked_list_item'
 
 class LinkedList
 
-  attr_reader :first_item
+  attr_reader :first_item, :size
+
   def initialize
     @size = 0
   end
@@ -28,6 +29,25 @@ class LinkedList
         current_node = current_node.next_item
       end
       current_node.payload
+    end
+  end
+
+  def last
+    if ! @last_item.nil?
+      @last_item.payload
+    end
+  end
+
+  def to_s
+    output = ""
+    if @first_item.nil?
+      output << "| |"
+    else
+      (@size - 1).times do |i|
+        output << "#{get(i)}, "
+      end
+      output << "#{@last_item.payload} "
+      return "| #{output}|"
     end
   end
 end
