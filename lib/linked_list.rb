@@ -115,6 +115,7 @@ class LinkedList
   end
 
   def delete(index)
+    raise IndexError if @first_item.nil?
     current_node = @first_item
     if index > 0
      (index - 1).times do
