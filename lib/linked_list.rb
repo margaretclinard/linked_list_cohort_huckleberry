@@ -2,7 +2,7 @@ require_relative 'linked_list_item'
 
 class LinkedList
 
-  attr_reader :first_item, :size
+  attr_reader :first_item, :size, :last_item
 
   def initialize(*payload)
     @size = 0
@@ -122,9 +122,28 @@ class LinkedList
         current_node = current_node.next_item
       end
       current_node.next_item = current_node.next_item.next_item
-    elsif index <= 0
+    else
       @first_item = current_node.next_item
     end
     @size -= 1
+  end
+
+  def index(value)
+    current_item = @first_item
+    if @size == 0
+      nil
+    else
+      index = 0
+      if current_item.payload == value
+        return index
+      end
+      until current_item.last?
+        current_item = current_item.next_item
+        index += 1
+        if current_item.payload == value
+          return index
+        end
+      end
+    end
   end
 end

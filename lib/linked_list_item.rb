@@ -12,7 +12,7 @@ class LinkedListItem
   end
 
   def next_item=(lli)
-    raise ArgumentError if self == lli
+    raise ArgumentError if self === lli
     @next_item = lli
   end
 
